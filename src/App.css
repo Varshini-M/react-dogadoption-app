@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: fit-content;
+  font-size: calc(2px + 2vmin);
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  background-color: #D4D2D0;
+}
+
+.App-footer {
+  min-height: fit-content;
+  font-size: 1vw;
+  color: black;
+  background-color: #D4D2D0;
+  position: relative;
+  bottom: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#headerImageId{
+  border: 2px solid #6c757d;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-Background{
+  background-color: slategrey;
+}
+
+#blackStyleId{
+  color:black;
+}
+
+.App-ContactImage{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App-Icon{
+  height:3vw;
+  width:3vw;
+}
+
+.App-IconText{
+  font-size: 75%;
+}
+
+.App-IconDetails{
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  left: 10%;
+}
+
+.App-AllIcon{
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.App-Contact{
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.bgColor{
+  background-color: #D4D2D0;
+}
