@@ -1,8 +1,12 @@
 import React from 'react';
 import error from '../assets/error.png';
-function Adoptathon(){
+function Adoptathon() {
     return (
-        <React.Fragment><img src={error} alt='underconstructionimage'/></React.Fragment>
+        <React.Fragment>
+            <div id='AdoptathonId'>
+                <img src={error} alt='underconstructionimage' />
+            </div>
+        </React.Fragment>
     );
 }
 export default Adoptathon;

@@ -3,7 +3,13 @@ function Activities() {
 
     return (
         <React.Fragment>
-            <br />
+            <div id='ActivitiesId'>
+                <p>Activities Starts</p>
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
         </React.Fragment>
     );
 }

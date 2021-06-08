@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import getintouch from '../assets/get-in-touch.png';
 import phone from '../assets/phone.png';
 import mail from '../assets/mail.png';
 import location from '../assets/location.png';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 function Contact() {
+    const [visible, setVisible] = useState(false);
+    const [contactObject, setContactObject] = useState({name:'',email:'',message:''});
+    const handleObjectChange = (event) => {
+        setContactObject({...contactObject,[event.target.name]:event.target.value});
+    };
+    const url = 'http://localhost:8400/v1/updateContactDetails';
+    const handleSubmit = async () => {
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify(contactObject),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              }
+        };
+        await fetch(url, settings);
+        setContactObject({name:'',email:'',message:''});
+    };
     return (
         <React.Fragment>
             <div className='bgColor'>
@@ -49,23 +67,28 @@ function Contact() {
                         <Form>
                             <Form.Group controlId="formGroupName">
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter Name" size='sm' />
+                                <Form.Control name='name' type="text" placeholder="Enter Name" size='sm' onChange={handleObjectChange}/>
                             </Form.Group>
                             <Form.Group controlId="formGroupEmail">
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" placeholder="abc@gmail.com" size='sm' />
+                                <Form.Control name='email' type="email" placeholder="abc@gmail.com" size='sm' onChange={handleObjectChange} />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                         </Form.Text>
                             </Form.Group>
                             <Form.Group controlId="formGroupMessage">
                                 <Form.Label>Message</Form.Label>
-                                <Form.Control as='textarea' type="text" placeholder="Message" size='sm' rows={2} />
+                                <Form.Control name='message' as='textarea' type="text" placeholder="Message" size='sm' rows={2} onChange={handleObjectChange} />
                             </Form.Group>
-                            <br />
-                            <Button variant="dark" type="submit" size='small'>
+                            <Button variant="dark" type="submit" size='small' onClick={() => {
+                                handleSubmit();
+                                setVisible(true);
+                            }}>
                                 Submit
                             </Button>
+                            <br />
+                            <br />
+                            <Alert show={visible} variant='warning' onClose={() => setVisible(false)} dismissible>Hey Thanks for writing to us !!!</Alert>
                         </Form>
                         <br />
                         <br />

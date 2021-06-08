@@ -7,16 +7,23 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Adopt from './AdoptComponent';
 
+
 function Main() {
     return (
         <React.Fragment>
             <Header />
             <Switch>
-                <Route exact path='/About'>
-                    <About pathname={'Default'} />
+                <Route path='/About'>
+                    <About/>
                 </Route>
-                <Route exact path='/About/Adoptathon'>
-                    <About pathname={'Adoptathon'} />
+                <Route exact path='/About/Adoptathon#AdoptathonId'>
+                    <About/>
+                </Route>
+                <Route exact path='/About/Sponsor#SponsorId'>
+                    <About/>
+                </Route>
+                <Route exact path='/About/Activities#ActivitiesId'>
+                    <About/>
                 </Route>
                 <Route exact path='/Contact'>
                     <Contact />

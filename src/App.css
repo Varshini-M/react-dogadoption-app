@@ -103,3 +103,10 @@
 .bgColor{
   background-color: #D4D2D0;
 }
+
+.App-About{
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

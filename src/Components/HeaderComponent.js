@@ -15,9 +15,9 @@ function Header() {
                     <Nav.Link href='/' id='blackStyleId'>Home</Nav.Link>
                 </Nav.Item>
                 <NavDropdown title="About Us" id="blackStyleId">
-                    <NavDropdown.Item href='/About/Adoptathon' eventKey="4.1">Adoptathon</NavDropdown.Item>
-                    <NavDropdown.Item href='/About/Sponsor' eventKey="4.2">Sponsor A Rescue</NavDropdown.Item>
-                    <NavDropdown.Item href='/About/Acitivities' eventKey="4.3">Activities</NavDropdown.Item>
+                    <NavDropdown.Item href='/About/Adoptathon#AdoptathonId' eventKey="4.1">Adoptathon</NavDropdown.Item>
+                    <NavDropdown.Item href='/About/Sponsor#SponsorId' eventKey="4.2">Sponsor A Rescue</NavDropdown.Item>
+                    <NavDropdown.Item href='/About/Acitivities#ActivitiesId' eventKey="4.3">Activities</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Item>
                     <Nav.Link href='/Contact' id="blackStyleId">Contact Us</Nav.Link>
