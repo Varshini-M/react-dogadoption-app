@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   min-height: fit-content;
   font-size: calc(2px + 2vmin);
@@ -104,9 +93,61 @@
   background-color: #D4D2D0;
 }
 
+.App-Adoptathon-Details{
+  height:50%;
+  width:50%;
+}
+
+.textColor{
+  color:black;
+}
+
 .App-About{
   min-height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: grey;
+  color: #fff;
+  font-size: 1.25vw;
+  border-radius: 1%;
+  min-width: 15%;
+  min-height: 15%;
+}
+.google-map {
+  width: 100%;
+  height: 60vh;
+}
+
+.App-Adoptathon{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.App-Poster{
+  height: 50%;
+  width: 50%;
+}
+
+.App-Button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.textSize{
+  font-size:75%;
+}
+.hidden {
+  display: none;
+  pointer-events: none;
+}
+ 

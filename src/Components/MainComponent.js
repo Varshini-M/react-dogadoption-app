@@ -6,6 +6,9 @@ import Contact from './ContactComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Adopt from './AdoptComponent';
+import Adoptathon from './AdoptathonComponent';
+import Sponsor from './SponsorComponent';
+import Activities from './ActivitiesComponent';
 
 
 function Main() {
@@ -13,17 +16,17 @@ function Main() {
         <React.Fragment>
             <Header />
             <Switch>
-                <Route path='/About'>
+                <Route exact path='/About'>
                     <About/>
                 </Route>
-                <Route exact path='/About/Adoptathon#AdoptathonId'>
-                    <About/>
+                <Route exact path='/About/Adoptathon'>
+                    <Adoptathon/>
                 </Route>
-                <Route exact path='/About/Sponsor#SponsorId'>
-                    <About/>
+                <Route exact path='/About/Sponsor'>
+                    <Sponsor/>
                 </Route>
-                <Route exact path='/About/Activities#ActivitiesId'>
-                    <About/>
+                <Route exact path='/About/Activities'>
+                    <Activities/>
                 </Route>
                 <Route exact path='/Contact'>
                     <Contact />

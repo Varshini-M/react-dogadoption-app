@@ -1,14 +1,11 @@
 import React from 'react';
+import error from '../assets/error.png';
 function Sponsor() {
 
     return (
         <React.Fragment>
             <div id='SponsorId'>
-                <p>Sponsor Starts</p>
-                <br />
-                <br />
-                <br />
-                <br />
+                <img src={error} alt='underconstructionimage' />
             </div>
         </React.Fragment>
     );

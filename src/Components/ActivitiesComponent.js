@@ -1,14 +1,11 @@
 import React from 'react';
+import error from '../assets/error.png';
 function Activities() {
 
     return (
         <React.Fragment>
-            <div id='ActivitiesId'>
-                <p>Activities Starts</p>
-                <br />
-                <br />
-                <br />
-                <br />
+            <div >
+                <img src={error} alt='underconstructionimage' />
             </div>
         </React.Fragment>
     );
