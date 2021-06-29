@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Adoptathongif from '../assets/ADOPTATHON.gif';
+import Slot from './SlotComponent';
 import { Form, Button, Alert } from 'react-bootstrap';
 function Adoptathon() {
     const [adoptathonDetails, setAdoptathonDetails] = useState({ name: '', email: '' });
     const [alertvisible, setAlertvisible] = useState(false);
     const [acceptalertvisible, setAcceptAlertvisible] = useState(false);
-    const [slotvisible,setSlotVisible] = useState();
+    const [slotvisible, setSlotVisible] = useState(false);
     const formHandler = (event) => {
         setAdoptathonDetails({ ...adoptathonDetails, [event.target.name]: event.target.value });
     };
@@ -13,10 +14,18 @@ function Adoptathon() {
         event.preventDefault();
         if (adoptathonDetails.name.length === 0 || adoptathonDetails.email.split('@').length === 1) {
             setAlertvisible(true);
+            setSlotVisible(false);
         } else {
             setAcceptAlertvisible(true);
             setSlotVisible(true);
-            setAdoptathonDetails({ name: '', email: '' });
+        }
+    };
+    const SlotComponent = () => {
+        if (slotvisible) {
+            setTimeout(() => setAcceptAlertvisible(false), 2000);
+            return <Slot />;
+        } else {
+            return <React.Fragment></React.Fragment>;
         }
     };
     return (
@@ -50,9 +59,8 @@ function Adoptathon() {
                         </div>
                         <br />
                         <Alert show={alertvisible} variant='danger' transition={false} onClose={() => setAlertvisible(false)} dismissible>Please Enter valid Details!</Alert>
-                        <Alert show={acceptalertvisible} variant='warning' transition={false} onClose={() => setAcceptAlertvisible(false)} dismissible>You have Successfuly registered for the event!</Alert>
-                        <div >
-                        </div>
+                        <Alert show={acceptalertvisible} variant='warning' transition={false} onClose={() => setAcceptAlertvisible(false)} dismissible>You have Successfuly registered for the event!Kindly select the slot based on your availability.</Alert>
+                        <SlotComponent />
                     </Form>
                 </div>
             </div>

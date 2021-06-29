@@ -22,12 +22,16 @@ function Snippet() {
         }, 10000);
         return () => { clearInterval(res) };
     });
-    const validateSnippet = () => {if(snippetvar !==undefined){
-        return <p><i>{snippetvar[itr]['story']}</i></p>;
-    }}
+    const ValidateSnippet = () => {
+        if (snippetvar !== undefined) {
+            return <p><i>{snippetvar[itr]['story']}</i></p>;
+        } else {
+            return <React.Fragment />
+        }
+    };
     return (
         <React.Fragment>
-            {validateSnippet()}
+            <ValidateSnippet />
         </React.Fragment>
     );
 }
