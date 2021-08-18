@@ -9,6 +9,7 @@ import Adopt from './AdoptComponent';
 import Adoptathon from './AdoptathonComponent';
 import Sponsor from './SponsorComponent';
 import Activities from './ActivitiesComponent';
+import Error from './ErrorComponent';
 
 
 function Main() {
@@ -36,6 +37,9 @@ function Main() {
                 </Route>
                 <Route exact path='/'>
                     <Home />
+                </Route>
+                <Route path='*'>
+                    <Error errorMessage='Page Not Found' />
                 </Route>
             </Switch>
             <Footer />

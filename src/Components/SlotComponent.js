@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Alert } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { userDataActions } from '../store/indexstore';
 
 function Slot(props) {
+    let adoptathonDetails = useSelector((state)=>state.userData);
+    const dispatch = useDispatch();
     const [elementArr, setElementArr] = useState([]);
     const [response, setResponse] = useState();
     const [slotAlert, setSlotAlert] = useState(false);
@@ -17,7 +21,7 @@ function Slot(props) {
         event.preventDefault();
         const url = 'http://localhost:8400/v1/updateSlotsAndUser';
         console.log(event.target.name);
-        let requestObject = { slot: event.target.name, email: props.adoptathonFormData.email }
+        let requestObject = { slot: event.target.name, email: adoptathonDetails.email }
         const settings = {
             method: 'POST',
             body: JSON.stringify(requestObject),
@@ -32,13 +36,14 @@ function Slot(props) {
         getSlots();
     };
     useEffect(() => {
+        let slotTimeout,slotSuccessTimeout;
         if (slotJson === undefined) {
             getSlots();
         }
         if (response !== undefined && response.existingUser === 'true') {
-            setTimeout(() => setSlotAlert(true), 2000);
+            slotTimeout = setTimeout(() => setSlotAlert(true), 2000);
         } else if (response !== undefined && response.existingUser === 'false') {
-            setTimeout(() => setSuccessSlotAlert(true), 2000);
+            slotSuccessTimeout = setTimeout(() => setSuccessSlotAlert(true), 2000);
         }
         let element = [];
         if (slotJson !== undefined && props.slotVisibleData===true) {
@@ -51,13 +56,17 @@ function Slot(props) {
             }
             setElementArr(element);
         }
+        let resetTimeout = setTimeout(()=>{if (slotAlert === true || successSlotAlert === true ) {
+            dispatch(userDataActions.concatenate({name:'name',value:''}));
+            dispatch(userDataActions.concatenate({name:'email',value:''}));
+            props.slotVisibleSetter(false);
+        }},3000);
         return () => {
-            if (slotAlert === true || successSlotAlert === true) {
-                props.adoptathonFormSetter({ name: '', email: '' });
-                props.slotVisibleSetter(false);
-            }
+            clearTimeout(slotTimeout);
+            clearTimeout(slotSuccessTimeout);
+            clearTimeout(resetTimeout);
         }
-    }, [slotJson, response, slotAlert, successSlotAlert]);
+    }, [slotJson, response, slotAlert, successSlotAlert,props]);
 
     return (
         <React.Fragment>

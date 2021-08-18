@@ -4,13 +4,17 @@ import phone from '../assets/phone.png';
 import mail from '../assets/mail.png';
 import location from '../assets/location.png';
 import { Form, Button, Alert } from 'react-bootstrap';
-import GoogleMapReact from 'google-map-react'
+import GoogleMapReact from 'google-map-react';
+import {useSelector,useDispatch} from 'react-redux';
+import { userDataActions } from '../store/indexstore';
 
 function Contact() {
     const [visible, setVisible] = useState(false);
-    const [contactObject, setContactObject] = useState({ name: '', email: '', message: '' });
+    const dispatch = useDispatch();
+    let contactObject = useSelector((state)=>state.userData);
     const handleObjectChange = (event) => {
-        setContactObject({ ...contactObject, [event.target.name]: event.target.value });
+        contactObject = dispatch(userDataActions.concatenate({name:event.target.name,value:event.target.value}));
+        console.log(contactObject);
     };
     const url = 'http://localhost:8400/v1/updateContactDetails';
     const handleSubmit = async (event) => {
@@ -25,7 +29,10 @@ function Contact() {
             }
         };
         await fetch(url, settings);
-        setContactObject({ name: '', email: '', message: '' });
+        contactObject = dispatch(userDataActions.concatenate({name:'name',value:''}));
+        contactObject = dispatch(userDataActions.concatenate({name:'email',value:''}));
+        contactObject = dispatch(userDataActions.concatenate({name:'message',value:''}));
+
     };
     const locationVal = {
         lat: 12.970309631943298,

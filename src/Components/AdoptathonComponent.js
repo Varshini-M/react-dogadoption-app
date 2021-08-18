@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import Adoptathongif from '../assets/ADOPTATHON.gif';
 import Slot from './SlotComponent';
 import { Form, Button, Alert } from 'react-bootstrap';
+import { useSelector,useDispatch } from 'react-redux';
+import { userDataActions } from '../store/indexstore';
 function Adoptathon() {
-    const [adoptathonDetails, setAdoptathonDetails] = useState({ name: '', email: '' });
+    let adoptathonDetails = useSelector((state)=>state.userData);
+    const dispatch = useDispatch();
     const [alertvisible, setAlertvisible] = useState(false);
     const [acceptalertvisible, setAcceptAlertvisible] = useState(false);
     const [rejectalertvisible, setRejectAlertvisible] = useState(false);
     const [slotvisible, setSlotVisible] = useState(false);
     const [response, setResponse] = useState();
     const formHandler = (event) => {
-        setAdoptathonDetails({ ...adoptathonDetails, [event.target.name]: event.target.value });
+        adoptathonDetails = dispatch(userDataActions.concatenate({name:event.target.name,value:event.target.value}));
     };
     const deleteUserSlot = async () => {
         const url = 'http://localhost:8400/v1/deleteUserSlot';
@@ -45,14 +48,15 @@ function Adoptathon() {
         } else {
             setRejectAlertvisible(true);
             deleteUserSlot();
-            setAdoptathonDetails({name:'',email:''});
+            dispatch(userDataActions.concatenate({name:'name',value:''}));
+            dispatch(userDataActions.concatenate({name:'email',value:''}));
             setResponse();
         }
     };
     const SlotComponent = () => {
         if (slotvisible) {
             setTimeout(() => setAcceptAlertvisible(false), 2000);
-            return <Slot adoptathonFormData={adoptathonDetails} adoptathonFormSetter={(val) => setAdoptathonDetails(val)} slotVisibleData={slotvisible} slotVisibleSetter={(val)=>setSlotVisible(val)}/>;
+            return <Slot slotVisibleData={slotvisible} slotVisibleSetter={(val)=>setSlotVisible(val)}/>;
         } else {
             return <React.Fragment></React.Fragment>;
         }

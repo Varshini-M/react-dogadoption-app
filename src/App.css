@@ -153,3 +153,7 @@
 .visible{
   display:flex;
 }
+
+.App-font{
+  color:black;
+}

@@ -7,7 +7,7 @@ function Snippet() {
     const jsonListFunction = async () => {
         let response = await fetch('http://localhost:8400/v1/getJson');
         const responseJson = await response.clone().json();
-        setSnippetVar(responseJson);
+        responseJson!==undefined?setSnippetVar(responseJson):setSnippetVar('');
     };
     useEffect(() => {
         if (snippetvar === undefined) {
