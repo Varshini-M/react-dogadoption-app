@@ -48,8 +48,7 @@ function Adoptathon() {
         } else {
             setRejectAlertvisible(true);
             deleteUserSlot();
-            dispatch(userDataActions.concatenate({name:'name',value:''}));
-            dispatch(userDataActions.concatenate({name:'email',value:''}));
+            dispatch(userDataActions.update({name:'',email:''}));
             setResponse();
         }
     };

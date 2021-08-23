@@ -29,10 +29,7 @@ function Contact() {
             }
         };
         await fetch(url, settings);
-        contactObject = dispatch(userDataActions.concatenate({name:'name',value:''}));
-        contactObject = dispatch(userDataActions.concatenate({name:'email',value:''}));
-        contactObject = dispatch(userDataActions.concatenate({name:'message',value:''}));
-
+        contactObject = dispatch(userDataActions.update({name:'',email:'',message:''}));
     };
     const locationVal = {
         lat: 12.970309631943298,

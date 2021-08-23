@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useCallback } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { userDataActions } from '../store/indexstore';
@@ -17,7 +17,7 @@ function Slot(props) {
         const responseJson = await response.clone().json();
         setSlotJson(responseJson);
     };
-    const slotSubmitHandler = async (event) => {
+    const slotSubmitHandler = useCallback(async (event) => {
         event.preventDefault();
         const url = 'http://localhost:8400/v1/updateSlotsAndUser';
         console.log(event.target.name);
@@ -34,7 +34,7 @@ function Slot(props) {
         let json = await data.clone().json();
         setResponse(json);
         getSlots();
-    };
+    },[adoptathonDetails.email]);
     useEffect(() => {
         let slotTimeout,slotSuccessTimeout;
         if (slotJson === undefined) {
@@ -57,8 +57,7 @@ function Slot(props) {
             setElementArr(element);
         }
         let resetTimeout = setTimeout(()=>{if (slotAlert === true || successSlotAlert === true ) {
-            dispatch(userDataActions.concatenate({name:'name',value:''}));
-            dispatch(userDataActions.concatenate({name:'email',value:''}));
+            dispatch(userDataActions.update({name:'',email:''}));
             props.slotVisibleSetter(false);
         }},3000);
         return () => {
@@ -66,7 +65,7 @@ function Slot(props) {
             clearTimeout(slotSuccessTimeout);
             clearTimeout(resetTimeout);
         }
-    }, [slotJson, response, slotAlert, successSlotAlert,props]);
+    }, [slotJson, response, slotAlert, successSlotAlert,props,slotSubmitHandler,dispatch]);
 
     return (
         <React.Fragment>
