@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Adoptathongif from '../assets/ADOPTATHON.gif';
 import Slot from './SlotComponent';
 import { Form, Button, Alert } from 'react-bootstrap';
@@ -48,10 +48,21 @@ function Adoptathon() {
         } else {
             setRejectAlertvisible(true);
             deleteUserSlot();
-            dispatch(userDataActions.update({name:'',email:''}));
+            dispatch(userDataActions.clearInput());
             setResponse();
         }
     };
+
+    useEffect(()=>{
+        let rejectTimeout;
+        if(rejectalertvisible === true){
+            rejectTimeout = setTimeout(()=>{setRejectAlertvisible(false)},2000);
+        }
+        return () => {
+            clearTimeout(rejectTimeout);
+        };
+    },[rejectalertvisible]);
+    
     const SlotComponent = () => {
         if (slotvisible) {
             setTimeout(() => setAcceptAlertvisible(false), 2000);

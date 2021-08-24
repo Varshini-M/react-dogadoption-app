@@ -13,6 +13,12 @@
   background-color: #D4D2D0;
 }
 
+.App-snippet{
+  display:flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
 .App-footer {
   min-height: fit-content;
   font-size: 1vw;
@@ -160,4 +166,21 @@
 
 .App-fontWhite{
   color:white;
+}
+
+.App-width{
+  width:18rem;
+}
+
+.App-AdoptText{
+  font: caption;
+  font-size: smaller;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-AdoptPupItems{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }

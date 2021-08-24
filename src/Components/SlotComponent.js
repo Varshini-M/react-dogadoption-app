@@ -35,6 +35,7 @@ function Slot(props) {
         setResponse(json);
         getSlots();
     },[adoptathonDetails.email]);
+    
     useEffect(() => {
         let slotTimeout,slotSuccessTimeout;
         if (slotJson === undefined) {
@@ -57,7 +58,7 @@ function Slot(props) {
             setElementArr(element);
         }
         let resetTimeout = setTimeout(()=>{if (slotAlert === true || successSlotAlert === true ) {
-            dispatch(userDataActions.update({name:'',email:''}));
+            dispatch(userDataActions.clearInput());
             props.slotVisibleSetter(false);
         }},3000);
         return () => {

@@ -5,11 +5,11 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import Adopt from './AdoptComponent';
 import Adoptathon from './AdoptathonComponent';
 import Sponsor from './SponsorComponent';
 import Activities from './ActivitiesComponent';
 import Error from './ErrorComponent';
+import AdoptMain from './AdoptMainComponent';
 
 
 function Main() {
@@ -33,7 +33,7 @@ function Main() {
                     <Contact />
                 </Route>
                 <Route exact path='/Adopt'>
-                    <Adopt />
+                    <AdoptMain />
                 </Route>
                 <Route exact path='/'>
                     <Home />

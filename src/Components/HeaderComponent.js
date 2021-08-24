@@ -23,7 +23,7 @@ function Header() {
                     <Nav.Link><Link className='App-font' to='/Contact'>Contact Us</Link></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link><Link className='App-font' to ='/Adopt'>Adopt a Pup</Link></Nav.Link>
+                    <Nav.Link><Link className='App-font' to='/Adopt'>Adopt a Pup</Link></Nav.Link>
                 </Nav.Item>
             </Nav>
             <div>

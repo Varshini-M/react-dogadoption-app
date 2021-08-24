@@ -29,7 +29,7 @@ function Contact() {
             }
         };
         await fetch(url, settings);
-        contactObject = dispatch(userDataActions.update({name:'',email:'',message:''}));
+        contactObject = dispatch(userDataActions.clearInput());
     };
     const locationVal = {
         lat: 12.970309631943298,
