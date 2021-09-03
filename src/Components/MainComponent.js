@@ -10,6 +10,8 @@ import Sponsor from './SponsorComponent';
 import Activities from './ActivitiesComponent';
 import Error from './ErrorComponent';
 import AdoptMain from './AdoptMainComponent';
+import Shopping from './ShoppingComponent';
+import Cart from './CartComponent';
 
 
 function Main() {
@@ -34,6 +36,12 @@ function Main() {
                 </Route>
                 <Route exact path='/Adopt'>
                     <AdoptMain />
+                </Route>
+                <Route path='/Adopt/:pupId'>
+                    <Shopping />
+                </Route>
+                <Route exact path='/Cart'>
+                    <Cart/>
                 </Route>
                 <Route exact path='/'>
                     <Home />

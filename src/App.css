@@ -9,14 +9,14 @@
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background-color: #D4D2D0;
 }
 
-.App-snippet{
-  display:flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
+.App-Cart{
+  min-width: 1rem;
+  position: absolute;
+  right: 1%;
 }
 
 .App-footer {
@@ -38,15 +38,6 @@
 
 #headerImageId{
   border: 2px solid #6c757d;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .App-Background{
@@ -138,6 +129,10 @@
   flex-direction: row;
 }
 
+.App-CartIcon{
+  min-height: 1rem;
+}
+
 .App-Poster{
   height: 50%;
   width: 50%;
@@ -178,9 +173,82 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.App-ShopText{
+  font: caption;
+  font-size: small;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-CartText{
+  font: caption;
+  font-size: small;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .App-AdoptPupItems{
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #D4D2D0; 
+}
+
+.App-PupDetail{
+  width: 20rem;
+  height: fit-content;
+}
+.App-PupDetailDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App-ShoppingDetail{
+  width:14rem;
+  height:35rem;
+}
+
+.App-CardGroup{
+  min-height: 80vh;
+  min-width: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.App-Shop{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #D4D2D0;
+}
+
+.App-Pay{
+  display:flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.App-quantityCart{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.App-disable{
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.App-tabSnippet{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.App-Snippet{
+  display: flex;
   flex-wrap: wrap;
 }

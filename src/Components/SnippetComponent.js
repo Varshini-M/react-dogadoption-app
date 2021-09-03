@@ -14,7 +14,7 @@ function Snippet() {
             jsonListFunction();
         }
         let res = setInterval(() => {
-            if (itr + 1 < snippetvar.length) {
+            if (itr + 1 < snippetvar?.length) {
                 setItr(itr + 1);
             } else {
                 setItr(0);
@@ -24,14 +24,14 @@ function Snippet() {
     });
     const ValidateSnippet = () => {
         if (snippetvar !== undefined) {
-            return <p><i>{snippetvar[itr]['story']}</i></p>;
+            return <p><i> &nbsp;&nbsp;&nbsp; &nbsp;{snippetvar[itr]['story']}</i></p>;
         } else {
             return <React.Fragment />
         }
     };
     return (
         <React.Fragment>
-            <ValidateSnippet />
+           <ValidateSnippet />
         </React.Fragment>
     );
 }
