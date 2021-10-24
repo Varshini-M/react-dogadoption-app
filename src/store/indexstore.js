@@ -59,13 +59,13 @@ const cartSlice = createSlice({
             } else {
                 matchingItems = 0;
             }
-            state.cartCount = state.cartCount - cartObject.quantity;
-            state.totalAmount = state.totalAmount - (cartObject.quantity * cartObject.amount);
             const index = state.idList.indexOf(cartObject.id);
             if (index !== -1) {
                 state.idList.splice(index, 1);
             }
             if (matchingItems.length > 0) {
+                state.cartCount = state.cartCount - cartObject.quantity;
+                state.totalAmount = state.totalAmount - (cartObject.quantity * cartObject.amount);
                 state.items.forEach((item) => {
                     if (item.id === cartObject.id) {
                         let qty = item.quantity - cartObject.quantity;
@@ -118,7 +118,11 @@ const shopCartSlice = createSlice({
             let matchingItems;
             let cartObject = action.payload;
             let index = 0;
-            matchingItems = state.filter((item) => item.id === cartObject.id);
+            if(state.length > 0){
+                matchingItems = state.filter((item) => item.id === cartObject.id);
+            }else{
+                matchingItems = 0;
+            }
             if (matchingItems.length > 0) {
                 state = state.map((item) => {
                     if (item.id === cartObject.id) {

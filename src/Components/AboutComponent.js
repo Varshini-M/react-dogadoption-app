@@ -16,7 +16,7 @@ function About() {
         setTodayDate(new Date());
     };
     const timerAdoptathon = () => {
-        let eventDate = new Date("September 9, 2021 00:00:00");
+        let eventDate = new Date("December 31, 2022 00:00:00");
         let timeLeft = eventDate.getTime() - todayDate.getTime();
         let leftValue = { days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)), hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)), seconds: Math.floor((timeLeft % (1000 * 60)) / 1000) };
         return leftValue;
@@ -44,7 +44,7 @@ function About() {
                             <Link to='/About/Adoptathon' className='textColor'><Card.Title>Adoptathon</Card.Title></Link>
                             <Card.Text>
                                 Find a Pawfect match for your family.Don't miss the event!!
-                                Save ur date @ 9th September 2021.
+                                Save ur date @ 31st December 2022.
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>

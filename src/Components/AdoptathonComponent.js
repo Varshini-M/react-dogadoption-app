@@ -1,5 +1,5 @@
 import React, { useState ,useEffect} from 'react';
-import Adoptathongif from '../assets/ADOPTATHON.gif';
+import AdoptathonJpg from '../assets/PawsAbode.jpg';
 import Slot from './SlotComponent';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useSelector,useDispatch } from 'react-redux';
@@ -74,7 +74,7 @@ function Adoptathon() {
     return (
         <React.Fragment>
             <div className='App-Adoptathon'>
-                <img src={Adoptathongif} alt='Adoptathongif' className='App-Poster' />
+                <img src={AdoptathonJpg} alt='Adoptathonjpg' className='App-Poster' />
                 <div className='App-Adoptathon-Details'>
                     <br />
                     <br />
