@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Container  } from 'react-bootstrap';
+import { Table, Button, Container, Offcanvas } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import CartItem from './CartItemComponent';
 
 function Cart() {
     let cartObject = useSelector((state) => state.cartData);
     const [total, setTotal] = useState(cartObject.totalAmount);
+    const [isPayNow,setIsPayNow] = useState(false);
     const payHandler = () => {
-        
+        setIsPayNow(true);
     }
+    const handleClose = () => {
+        setIsPayNow(false);
+    }
+
     useEffect(() => {
         setTotal(cartObject.totalAmount);
     }, [cartObject]);
@@ -38,8 +43,19 @@ function Cart() {
                     </tbody>
                 </Table>
                 <div className='App-Pay'>
-                    <Button variant='secondary' className='App-CartText' onClick={payHandler}>Pay Now</Button>{' '}
+                    <Button variant='secondary' disabled={total===0} className='App-CartText' onClick={payHandler}>Pay Now</Button>{' '}
                 </div>
+                {isPayNow && 
+                    <Offcanvas show={isPayNow} onHide={handleClose} scroll={true} backdrop={true} placement='end'>
+                        <Offcanvas.Header closeButton>
+                            <Offcanvas.Title>Happy Adoption!!</Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                            You are one step closer to reach you pup!!
+                        </Offcanvas.Body>
+                        <Button variant='secondary'>Gpay {total}/-</Button>
+                    </Offcanvas>
+                }
                 <br />
             </Container>
         </React.Fragment>

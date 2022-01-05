@@ -166,6 +166,7 @@ const store = configureStore({
     reducer: { userData: userDataSlice.reducer, cartData: cartSlice.reducer, currentPupData: currentPupSlice.reducer, shopCartData: shopCartSlice.reducer, adoptPupData: adoptPupSlice.reducer },
 });
 
+
 export const userDataActions = userDataSlice.actions;
 export const cartActions = cartSlice.actions;
 export const currentPupActions = currentPupSlice.actions;
