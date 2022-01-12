@@ -14,7 +14,7 @@ function Header() {
                 <div className='App-tabSnippet'>
                     <Nav variant="tabs">
                         <Nav.Item>
-                            <Nav.Link><Link className='App-font' to="/">Home</Link></Nav.Link>
+                            <Nav.Link className='App-font' as={Link} to="/"><p className='App-font'>Home</p></Nav.Link>
                         </Nav.Item>
                         <NavDropdown id='blackStyleId' title={<Link className='App-font' to="/About">About Us</Link>}>
                             <NavDropdown.Item eventKey="4.1"><Link className='App-font' to='/About/Adoptathon'>Adoptathon</Link></NavDropdown.Item>
@@ -22,10 +22,10 @@ function Header() {
                             <NavDropdown.Item eventKey="4.3"><Link className='App-font' to='/About/Activities'>Activities</Link></NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Item>
-                            <Nav.Link><Link className='App-font' to='/Contact'>Contact Us</Link></Nav.Link>
+                            <Nav.Link className='App-font' as={Link}  to='/Contact'><p className='App-font'>Contact Us</p></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link><Link className='App-font' to='/Adopt'>Adopt a Pup</Link></Nav.Link>
+                            <Nav.Link className='App-font' as={Link}  to='/Adopt'><p className='App-font'>Adopt a Pup</p></Nav.Link>
                         </Nav.Item>
                     </Nav>
                     <div className='App-Snippet'>
