@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Container, Offcanvas } from 'react-bootstrap';
+import { Table, Button, Container, Offcanvas,Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import CartItem from './CartItemComponent';
 
@@ -51,9 +51,22 @@ function Cart() {
                             <Offcanvas.Title>Happy Adoption!!</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            You are one step closer to reach you pup!!
-                        </Offcanvas.Body>
-                        <Button variant='secondary'>Gpay {total}/-</Button>
+                        <div>
+                            <p>You are one step closer to reach you pup!!</p>
+                            <Card className='App-CartText' style={{ width: '18rem'}}>
+                            <Table>
+                            <thead><Card.Header>Checkout</Card.Header></thead>
+                            <tbody>
+                                {cartObject.items.length > 0 && cartObject.items.map((item) => {
+                                    return (<tr><td>{item.name}</td> <td>{item.quantity}</td> <td>Rs. {item.amount}/-</td></tr>)
+                                })}
+                                <tr><td>Total</td> <td>{cartObject.cartCount}</td>  <td>Rs. {total}/-</td></tr>
+                            </tbody>
+                            ̥</Table>
+                            </Card>
+                        </div>
+                        </Offcanvas.Body>   
+                        <Button variant='secondary'>Pay {total}/-</Button>
                     </Offcanvas>
                 }
                 <br />

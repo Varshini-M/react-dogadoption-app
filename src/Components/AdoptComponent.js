@@ -12,6 +12,7 @@ function Adopt(props) {
     const [isModal, setIsModal] = useState(false);
     const isVaccinated = props.pupDetails.vaccinated;
     const isPottyTrained = props.pupDetails.pottyTrained;
+    const images = require.context('../assets/', true);
     let dispatch = useDispatch();
     let cartObject = useSelector((state) => state.cartData);
     const [isAdopt, setIsAdopt] = useState(cartObject.idList.indexOf(props.pupDetails.id) !== -1);
@@ -36,7 +37,7 @@ function Adopt(props) {
     return (
         <React.Fragment>
             <Card className='App-width'>
-                <Link to={`/Adopt/${props.pupDetails.id}`}><Card.Img variant="top" src={props.pupDetails.image} width='100vw' height='250vw' onClick={imageClickHandler} /></Link>
+                <Link to={`/Adopt/${props.pupDetails.id}`}><Card.Img variant="top" src={images(`./${props.pupDetails.image}`)} width='100vw' height='250vw' onClick={imageClickHandler} /></Link>
                 <Card.Body>
                     <Card.Title>{props.pupDetails.name}</Card.Title>
                     <Card.Text className='App-AdoptText'>

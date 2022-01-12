@@ -14,6 +14,7 @@ function AdoptDescription(props) {
     const isPottyTrained = props.pupDetails.pottyTrained;
     const [shoppingDetails, setShoppingDetails] = useState();
     const [index, setIndex] = useState(0);
+    const images = require.context('../assets/', true);
     let cartObject = useSelector((state) => state.cartData);
     const [isAdopt, setIsAdopt] = useState(cartObject.idList.indexOf(props.pupDetails.id) !== -1);
     const [filteredShoppingDetails, setFilteredShoppingDetails] = useState([]);
@@ -78,7 +79,7 @@ function AdoptDescription(props) {
             <div className='App-Shop'>
                 <div className='App-PupDetailDiv'>
                     <Card className='App-PupDetail'>
-                        <Card.Img variant="top" src={props.pupDetails.image} width='100vw' height='250vw'/>
+                        <Card.Img variant="top" src={images(`./${props.pupDetails.image}`)} width='100vw' height='250vw'/>
                         <Card.Body>
                             <Card.Title>{props.pupDetails.name}</Card.Title>
                             <Card.Text className='App-AdoptText'>

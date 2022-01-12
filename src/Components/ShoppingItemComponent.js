@@ -3,10 +3,12 @@ import { Card, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import favourite from '../assets/favourite.png'
 import {useDispatch,useSelector} from 'react-redux';
 import {shopCartActions,cartActions} from '../store/indexstore';
+
 function ShoppingItem(props) {
     let dispatch = useDispatch();
     let shopCartObject = useSelector((state)=>state.shopCartData);
     const [shopItem,setShopItem] = useState();
+    const images = require.context('../assets/', true);
     const addHandler = () => {
         dispatch(shopCartActions.addShopItem({id:props.itemDetails.id,quantity:1,price:props.itemDetails.price,total:props.itemDetails.price}));        
         dispatch(cartActions.addCart({ id: props.itemDetails.id, quantity: 1, amount: props.itemDetails.price, name: props.itemDetails.name}));
@@ -25,7 +27,7 @@ function ShoppingItem(props) {
     return (
         <React.Fragment>
             <Card className='App-ShoppingDetail'>
-                <Card.Img variant="top" src={props.itemDetails.image} width='35vw' height='150vw' />
+                <Card.Img variant="top" src={images(`./${props.itemDetails.image}`)} width='35vw' height='150vw' />
                 <Card.Body>
                     <Card.Title>{props.itemDetails.name}</Card.Title>
                     <Card.Text className='App-ShopText'>
